@@ -46,12 +46,24 @@ public class SampleTests {
         String result = printBoard(board);
 
         board[1][0] = 0;
-        board[1][1] = 1;
+        board[1][1] = isCenterCellAlive(board);
         board[1][2] = 0;
         result += "\n";
         result += printBoard(board);
 
         Approvals.verify(result);
+    }
+
+    private int isCenterCellAlive(int[][] board) {
+        int neighborCount = 0;
+        for (int y = 0; y <3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (x == 1 && y == 1) {
+                    neighborCount += board[y][x];
+                }
+            }
+        }
+        return neighborCount;
     }
 
     private static String printBoard(int[][] board) {
