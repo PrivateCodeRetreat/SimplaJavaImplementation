@@ -20,15 +20,26 @@ public class SampleTests {
         int[][] board = new int[3][3];
         board[1][1] = 1;
         String result = printBoard(board);
-        // 000
-        // 010
-        // 000
 
-        // 000
-        // 000
-        // 000
+        board[1][1] = 0;
+        result += "\n";
+        result += printBoard(board);
 
         Approvals.verify(result);
+    }
+
+    /*
+    000
+    111
+    000
+
+    000
+    010
+    000
+     */
+    @Test
+    void lifeCellHasTwoNeighborsSurvives() {
+
     }
 
     private static String printBoard(int[][] board) {
