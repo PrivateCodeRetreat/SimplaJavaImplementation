@@ -14,9 +14,17 @@ public class SampleTests
     assertEquals(5, 5);
   }
   @Test
-  public void testWithApprovalTests()
+  public void printSimpleBoard()
   {
-    Approvals.verify("Hello World");
+ //   Approvals.verify("Hello World");
+    int[][] board = new int[3][3];
+    for (int y = 0; y < 3; y++) {
+      for (int x = 0; x < 3; x++) {
+        System.out.print(board[y][x]);
+      }
+      System.out.println();
+    }
+
   }
   /**
     *  note: this requires GSON which is currently added in the pom.xml file. 
