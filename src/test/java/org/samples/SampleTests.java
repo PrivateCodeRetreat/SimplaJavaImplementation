@@ -39,7 +39,19 @@ public class SampleTests {
      */
     @Test
     void lifeCellHasTwoNeighborsSurvives() {
+        int[][] board = new int[3][3];
+        board[1][0] = 1;
+        board[1][1] = 1;
+        board[1][2] = 1;
+        String result = printBoard(board);
 
+        board[1][0] = 0;
+        board[1][1] = 1;
+        board[1][2] = 0;
+        result += "\n";
+        result += printBoard(board);
+
+        Approvals.verify(result);
     }
 
     private static String printBoard(int[][] board) {
