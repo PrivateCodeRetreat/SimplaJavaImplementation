@@ -15,13 +15,20 @@ public class SampleTests {
         Approvals.verify(result);
     }
 
-
-
     @Test
     void whenLifeCellIsInTheMiddleAndItHasNoNeighborTheCellDies() {
         int[][] board = new int[3][3];
         board[1][1] = 1;
-       Approvals.verify(printBoard(board));
+        String result = printBoard(board);
+        // 000
+        // 010
+        // 000
+
+        // 000
+        // 000
+        // 000
+
+        Approvals.verify(result);
     }
 
     private static String printBoard(int[][] board) {
@@ -34,6 +41,7 @@ public class SampleTests {
         }
         return result;
     }
+
     /**
      * note: this requires GSON which is currently added in the pom.xml file.
      * This is only required if you want to use the VerifyAsJson.
